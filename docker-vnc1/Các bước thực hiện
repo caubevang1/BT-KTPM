@@ -1,0 +1,20 @@
+B1: Truy cập terminal từ thư mục chứa 2 file Dockerfile và docker-compose.yml
+B2: Nhập docker compose up
+B3: Mở 1 terminal khác và truy cập ssh qua đoạn mã: ssh docker@localhost -p 2222 và nhập pass
+B4: Nhập sudo apt update để cập nhật thông tin mới nhất của các gói
+B5: sudo apt install xfce4 để cài đặt DE, ở phần ngôn ngữ chọn 31 (English US), ở phần default display chọn gdm3
+B6: Nhập sudo apt install tightvncserver để cài đặt vnc
+B7: Nhập vncserver :1 -geometry 1280x720 -depth 24, để khởi tạo một server VNC mới với các thông số độ phân giải và số bit màu
+B8: Nhập pass cho desktop ảo Xfce4
+B9: Sau đó dùng RealVNC Viewer và nhập localhost:5901 để kết nối VNC client tới VNC server, sau khi nhập password đã tạo ở trên thì sẽ truy cập được vào desktop ảo, 
+màn hình hiện tại chỉ có 1 màu xám do Xfce4 chưa được khởi động.
+B10: Nhập sudo apt install nano để cài trình soạn thảo văn bản nano trên hệ thống Ubuntu.
+B11: Nhập nano ~/.vnc/xstartup để mở file cấu hình khởi động VNC server bằng nano.
+B12: Thay nội dung cũ bằng 
+#!/bin/sh
+xrdb $HOME/.Xresources
+startxfce4 &
+rồi ấn Ctrl + O để ghi, rồi ấn enter để lưu lại, cuối cùng ấn Ctrl + X để thoát nano
+B13: Nhập chmod +x ~/.vnc/xstartup để cấp quyền
+B14: Nhập vncserver -kill :1 để tắt tiến trình hiện tại
+B15: Nhập lại vncserver :1 -geometry 1280x800 -depth 24 và kết nối lại bằng RealVNC Viewer và chúng ta đã thành công truy cập và desktop ảo hiển thị bình thường và có đầy đủ các chức năng.

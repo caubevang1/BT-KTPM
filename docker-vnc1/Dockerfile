@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y \
     sudo \
     && rm -rf /var/lib/apt/lists/*
 
-# Tạo user 'docker' có quyền sudo
+# Tạo user 
 RUN useradd -ms /bin/bash docker && echo "docker:docker" | chpasswd && adduser docker sudo
 
 # Chuẩn bị SSH
@@ -18,5 +18,5 @@ RUN sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/
 # Expose cổng SSH
 EXPOSE 22
 
-# User mặc định
 CMD ["/usr/sbin/sshd", "-D"]
+
